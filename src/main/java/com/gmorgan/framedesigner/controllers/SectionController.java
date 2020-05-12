@@ -34,11 +34,10 @@ public class SectionController {
         return new ResponseEntity<>(sectionRepository.findAllByDescContainsOrderByIxx("SHS"), HttpStatus.OK);
     }
 
-    @GetMapping("/{desc}/{minIxx}/{minZxx}")
-    public ResponseEntity<Section>getNextRhs(@PathVariable("minIxx") double Ixx,
-                                             @PathVariable("minZxx") double Zxx,
+    @GetMapping("/{desc}/{minIyy}/{minZyy}")
+    public ResponseEntity<Section>getNextRhs(@PathVariable("minIyy") double Iyy,
+                                             @PathVariable("minZyy") double Zyy,
                                              @PathVariable("desc")  String desc){
-        return new ResponseEntity<>(sectionRepository.findFirstByIxxGreaterThanAndZxxGreaterThanAndDescContainsIgnoreCase(Ixx, Zxx, desc), HttpStatus.OK);
+        return new ResponseEntity<>(sectionRepository.findFirstByIyyGreaterThanAndZyyGreaterThanAndDescContainsIgnoreCase(Iyy, Zyy, desc), HttpStatus.OK);
     }
-
 }

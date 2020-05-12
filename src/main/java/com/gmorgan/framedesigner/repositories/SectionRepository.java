@@ -10,5 +10,5 @@ import java.util.List;
 public interface SectionRepository extends JpaRepository<Section, Long> {
 
     List<Section> findAllByDescContainsOrderByIxx (String string);
-    Section findFirstByIxxGreaterThanAndZxxGreaterThanAndDescContainsIgnoreCase(double ixx, double zxx, String desc);
+    Section findFirstByIyyGreaterThanAndZyyGreaterThanAndDescContainsIgnoreCase(double iyy, double zyy, String desc);
 }
