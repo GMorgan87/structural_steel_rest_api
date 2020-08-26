@@ -40,4 +40,13 @@ public class SectionController {
                                              @PathVariable("desc")  String desc){
         return new ResponseEntity<>(sectionRepository.findFirstByIyyGreaterThanAndZyyGreaterThanAndDescContainsIgnoreCase(Iyy, Zyy, desc), HttpStatus.OK);
     }
+
+    @GetMapping("/{desc}/{minIxx}/{minZxx}/{minIyy}/{minZyy}")
+    public ResponseEntity<Section>getNextRhs(@PathVariable("minIxx") double Ixx,
+                                             @PathVariable("minZxx") double Zxx,
+                                             @PathVariable("minIyy") double Iyy,
+                                             @PathVariable("minZyy") double Zyy,
+                                             @PathVariable("desc")  String desc){
+        return new ResponseEntity<>(sectionRepository.findFirstByIxxGreaterThanAndZxxGreaterThanAndIyyGreaterThanAndZyyGreaterThanAndDescContainsIgnoreCase(Ixx, Zxx, Iyy, Zyy, desc), HttpStatus.OK);
+    }
 }
