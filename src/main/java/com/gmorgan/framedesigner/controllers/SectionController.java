@@ -35,11 +35,21 @@ public class SectionController {
     }
 
     @GetMapping("/{desc}/{minIyy}/{minZyy}")
-    public ResponseEntity<Section>getNextRhs(@PathVariable("minIyy") double Iyy,
+    public ResponseEntity<Section>getNextbeam(@PathVariable("minIyy") double Iyy,
                                              @PathVariable("minZyy") double Zyy,
                                              @PathVariable("desc")  String desc){
         return new ResponseEntity<>(sectionRepository.findFirstByIyyGreaterThanAndZyyGreaterThanAndDescContainsIgnoreCase(Iyy, Zyy, desc), HttpStatus.OK);
     }
+
+    @GetMapping("/{desc}/{minIyy}/{minZyy}/{csa}")
+    public ResponseEntity<Section>getNextRhs(@PathVariable("minIyy") double Iyy,
+                                             @PathVariable("minZyy") double Zyy,
+                                             @PathVariable("desc")  String desc,
+                                             @PathVariable("csa") double csa){
+        return new ResponseEntity<>(sectionRepository.findFirstByIyyGreaterThanAndZyyGreaterThanAndCsaGreaterThanAndDescContainsIgnoreCase(Iyy, Zyy, csa, desc), HttpStatus.OK);
+    }
+
+
 
     @GetMapping("/{desc}/{minIxx}/{minZxx}/{minIyy}/{minZyy}")
     public ResponseEntity<Section>getNextRhs(@PathVariable("minIxx") double Ixx,
