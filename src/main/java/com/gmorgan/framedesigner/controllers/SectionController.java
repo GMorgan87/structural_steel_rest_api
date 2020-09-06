@@ -35,10 +35,10 @@ public class SectionController {
     }
 
     @GetMapping("/{desc}/{minIyy}/{minZyy}")
-    public ResponseEntity<Section>getNextbeam(@PathVariable("minIyy") double Iyy,
+    public ResponseEntity<List<Section>>getNextbeam(@PathVariable("minIyy") double Iyy,
                                              @PathVariable("minZyy") double Zyy,
                                              @PathVariable("desc")  String desc){
-        return new ResponseEntity<>(sectionRepository.findFirstByIyyGreaterThanAndZyyGreaterThanAndDescContainsIgnoreCase(Iyy, Zyy, desc), HttpStatus.OK);
+        return new ResponseEntity<>(sectionRepository.findAllByIyyGreaterThanAndZyyGreaterThanAndDescContainsIgnoreCase(Iyy, Zyy, desc), HttpStatus.OK);
     }
 
     @GetMapping("/{desc}/{minIyy}/{minZyy}/{csa}")
