@@ -42,11 +42,11 @@ public class SectionController {
     }
 
     @GetMapping("/{desc}/{minIyy}/{minZyy}/{csa}")
-    public ResponseEntity<Section>getNextRhs(@PathVariable("minIyy") double Iyy,
+    public ResponseEntity<List<Section>>getNextRhs(@PathVariable("minIyy") double Iyy,
                                              @PathVariable("minZyy") double Zyy,
                                              @PathVariable("desc")  String desc,
                                              @PathVariable("csa") double csa){
-        return new ResponseEntity<>(sectionRepository.findFirstByIyyGreaterThanAndZyyGreaterThanAndCsaGreaterThanAndDescContainsIgnoreCase(Iyy, Zyy, csa, desc), HttpStatus.OK);
+        return new ResponseEntity<>(sectionRepository.findAllByIyyGreaterThanAndZyyGreaterThanAndCsaGreaterThanAndDescContainsIgnoreCase(Iyy, Zyy, csa, desc), HttpStatus.OK);
     }
 
 
@@ -60,8 +60,8 @@ public class SectionController {
     }
 
     @GetMapping("/flp/{minIyy}/{minZyy}")
-    public ResponseEntity<Section>getFLP(@PathVariable("minIyy") double Iyy,
+    public ResponseEntity<List<Section>>getFLP(@PathVariable("minIyy") double Iyy,
                                          @PathVariable("minZyy") double Zyy){
-        return new ResponseEntity<>(sectionRepository.findFirstByIyyGreaterThanAndZyyGreaterThanAndXGreaterThanAndYGreaterThanAndDescContainsIgnoreCase(Iyy, Zyy, 210, 100, "rhs"), HttpStatus.OK);
+        return new ResponseEntity<>(sectionRepository.findAllByIyyGreaterThanAndZyyGreaterThanAndXGreaterThanAndYGreaterThanAndDescContainsIgnoreCase(Iyy, Zyy, 210, 100, "rhs"), HttpStatus.OK);
     }
 }
