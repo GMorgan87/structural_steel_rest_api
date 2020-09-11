@@ -50,7 +50,7 @@ public class SectionController {
     }
 
 
-    @GetMapping("/{desc}/{minIxx}/{minZxx}/{minIyy}/{minZyy}/{minY}")
+    @GetMapping("/{desc}/{minIxx}/{minZxx}/{minIyy}/{minZyy}/{minX}")
     public ResponseEntity<List<Section>>getNextRhs(@PathVariable("minIxx") double Ixx,
                                              @PathVariable("minZxx") double Zxx,
                                              @PathVariable("minIyy") double Iyy,
