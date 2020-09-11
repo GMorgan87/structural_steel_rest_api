@@ -55,7 +55,7 @@ public class SectionController {
                                              @PathVariable("minZxx") double Zxx,
                                              @PathVariable("minIyy") double Iyy,
                                              @PathVariable("minZyy") double Zyy,
-                                             @PathVariable("minX") double X,
+                                             @PathVariable("minX") int X,
                                              @PathVariable("desc")  String desc){
         return new ResponseEntity<>(sectionRepository.findAllByIxxGreaterThanAndZxxGreaterThanAndIyyGreaterThanAndZyyGreaterThanAndYGreaterThanAndDescContainsIgnoreCase(Ixx, Zxx, Iyy, Zyy, X, desc), HttpStatus.OK);
     }
