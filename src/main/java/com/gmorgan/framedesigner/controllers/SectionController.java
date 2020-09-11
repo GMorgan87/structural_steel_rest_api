@@ -55,9 +55,9 @@ public class SectionController {
                                              @PathVariable("minZxx") double Zxx,
                                              @PathVariable("minIyy") double Iyy,
                                              @PathVariable("minZyy") double Zyy,
-                                             @PathVariable("minY") double Y,
+                                             @PathVariable("minX") double X,
                                              @PathVariable("desc")  String desc){
-        return new ResponseEntity<>(sectionRepository.findAllByIxxGreaterThanAndZxxGreaterThanAndIyyGreaterThanAndZyyGreaterThanAndYGreaterThanAndDescContainsIgnoreCase(Ixx, Zxx, Iyy, Zyy, Y, desc), HttpStatus.OK);
+        return new ResponseEntity<>(sectionRepository.findAllByIxxGreaterThanAndZxxGreaterThanAndIyyGreaterThanAndZyyGreaterThanAndYGreaterThanAndDescContainsIgnoreCase(Ixx, Zxx, Iyy, Zyy, X, desc), HttpStatus.OK);
     }
 
     @GetMapping("/flp/{minIyy}/{minZyy}")
