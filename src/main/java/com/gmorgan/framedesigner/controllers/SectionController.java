@@ -49,7 +49,6 @@ public class SectionController {
         return new ResponseEntity<>(sectionRepository.findAllByIyyGreaterThanAndZyyGreaterThanAndCsaGreaterThanAndDescContainsIgnoreCase(Iyy, Zyy, csa, desc), HttpStatus.OK);
     }
 
-
     @GetMapping("/{desc}/{minIxx}/{minZxx}/{minIyy}/{minZyy}/{minX}")
     public ResponseEntity<List<Section>>getNextRhs(@PathVariable("minIxx") double Ixx,
                                              @PathVariable("minZxx") double Zxx,

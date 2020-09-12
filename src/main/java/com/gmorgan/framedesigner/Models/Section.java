@@ -41,7 +41,7 @@ public class Section {
     @Column
     private double mass;
 
-    public Section(String desc, double csa, double ixx, double iyy, double zxx, double zyy, double thk, int x, int y, double mass) {
+    public Section(String desc, double csa, double ixx, double iyy, double zyy, double zxx, double thk, int x, int y, double mass) {
         this.desc = desc;
         this.csa = csa;
         this.ixx = ixx;
