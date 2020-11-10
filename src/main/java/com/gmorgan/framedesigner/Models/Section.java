@@ -33,15 +33,22 @@ public class Section {
     private double thk;
 
     @Column
-    private int x;
+    private double x;
 
     @Column
-    private int y;
+    private double y;
 
     @Column
     private double mass;
 
-    public Section(String desc, double csa, double ixx, double iyy, double zyy, double zxx, double thk, int x, int y, double mass) {
+    @Column
+    private double thkWeb;
+
+    @Column
+    private double thkFlange;
+
+
+    public Section(String desc, double csa, double ixx, double iyy, double zyy, double zxx, double thk, double x, double y, double mass) {
         this.desc = desc;
         this.csa = csa;
         this.ixx = ixx;
@@ -49,6 +56,20 @@ public class Section {
         this.zxx = zxx;
         this.zyy = zyy;
         this.thk = thk;
+        this.x = x;
+        this.y = y;
+        this.mass = mass;
+    }
+
+    public Section(String desc, double csa, double ixx, double iyy, double zyy, double zxx, double thkWeb, double thkFlange, double x, double y, double mass) {
+        this.desc = desc;
+        this.csa = csa;
+        this.ixx = ixx;
+        this.iyy = iyy;
+        this.zxx = zxx;
+        this.zyy = zyy;
+        this.thkWeb = thkWeb;
+        this.thkFlange = thkFlange;
         this.x = x;
         this.y = y;
         this.mass = mass;
@@ -121,7 +142,7 @@ public class Section {
         this.thk = thk;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
@@ -129,7 +150,7 @@ public class Section {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
@@ -144,4 +165,21 @@ public class Section {
     public void setMass(double mass) {
         this.mass = mass;
     }
+
+    public double getThkWeb() {
+        return thkWeb;
+    }
+
+    public void setThkWeb(double thkWeb) {
+        this.thkWeb = thkWeb;
+    }
+
+    public double getThkFlange() {
+        return thkFlange;
+    }
+
+    public void setThkFlange(double thkFlange) {
+        this.thkFlange = thkFlange;
+    }
+
 }
