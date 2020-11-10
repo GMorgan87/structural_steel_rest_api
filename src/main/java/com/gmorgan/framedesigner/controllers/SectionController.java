@@ -17,7 +17,7 @@ public class SectionController {
     @Autowired
     SectionRepository sectionRepository;
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<Section>>getAllSections(){
         return new ResponseEntity<>(sectionRepository.findAll(), HttpStatus.OK);
     }

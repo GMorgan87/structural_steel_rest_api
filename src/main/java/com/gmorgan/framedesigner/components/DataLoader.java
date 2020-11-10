@@ -22,7 +22,7 @@ public class DataLoader implements ApplicationRunner {
 
     public void run (ApplicationArguments args) throws Exception {
 
-        BufferedReader csvReader = new BufferedReader(new FileReader("/Users/garethmorgan/DNV_frame_designer/server/frame-designer/data/hollow_sections.csv"));
+        BufferedReader csvReader = new BufferedReader(new FileReader("/Users/garethmorgan/DNV_frame_designer/server/frame-designer/src/main/java/com/gmorgan/framedesigner/data/hollow_sections.csv"));
         String row;
         while ((row = csvReader.readLine()) != null) {
             String[] data = row.split(",");
@@ -31,7 +31,7 @@ public class DataLoader implements ApplicationRunner {
         }
         csvReader.close();
 
-        BufferedReader csvReaderBeam = new BufferedReader(new FileReader("/Users/garethmorgan/DNV_frame_designer/server/frame-designer/data/beams.csv"));
+        BufferedReader csvReaderBeam = new BufferedReader(new FileReader("/Users/garethmorgan/DNV_frame_designer/server/frame-designer/src/main/java/com/gmorgan/framedesigner/data/beams.csv"));
         String rowBeam;
         while ((rowBeam = csvReaderBeam.readLine()) != null) {
             String[] dataBeam = rowBeam.split(",");
