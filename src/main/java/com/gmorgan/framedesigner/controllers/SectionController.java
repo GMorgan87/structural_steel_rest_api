@@ -5,11 +5,15 @@ import com.gmorgan.framedesigner.repositories.SectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
+
 
 @RestController
 public class SectionController {
@@ -17,14 +21,14 @@ public class SectionController {
     @Autowired
     SectionRepository sectionRepository;
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public ResponseEntity<List<Section>>getAllSections(){
         return new ResponseEntity<>(sectionRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{desc}")
     public ResponseEntity<List<Section>>getAll(@PathVariable("desc") String desc){
-        return new ResponseEntity<>(sectionRepository.findAllByDescContainsOrderByIxx(desc.toUpperCase()), HttpStatus.OK);
+        return new ResponseEntity<>(sectionRepository.findAllByDescContains(desc.toUpperCase()), HttpStatus.OK);
     }
 
     @GetMapping("/{desc}/y/{minIyy}/{minZyy}/all")

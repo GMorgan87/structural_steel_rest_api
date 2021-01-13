@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface SectionRepository extends JpaRepository<Section, Long> {
 
-    List<Section> findAllByDescContainsOrderByIxx (String desc);
+    List<Section> findAllByDescContains (String desc);
     List<Section> findAllByIyyGreaterThanAndZyyGreaterThanAndDescContainsIgnoreCase(double iyy, double zyy, String desc);
     List<Section> findAllByIxxGreaterThanAndZxxGreaterThanAndDescContainsIgnoreCase(double ixx, double zxx, String desc);
     Section findFirstByIyyGreaterThanAndZyyGreaterThanAndDescContainsIgnoreCase(double iyy, double zyy, String desc);
